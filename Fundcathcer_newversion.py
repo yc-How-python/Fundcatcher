@@ -66,6 +66,12 @@ class ThreadTable(QtCore.QThread):
             money = self.moneylist[row]
             print(money)
             moneyItem = QtWidgets.QTableWidgetItem(str(money))
+
+
+
+
+
+
             rate = self.delta_rate_extract(soup)
             rateItem = QtWidgets.QTableWidgetItem(str(rate))
 
@@ -81,6 +87,10 @@ class ThreadTable(QtCore.QThread):
 
             row += 1
             profitlist.append(profit)
+
+
+
+
         totalmoney = 0
         for each in self.moneylist:
             totalmoney += float(each)
@@ -99,6 +109,10 @@ class ThreadTable(QtCore.QThread):
 
 class Fund_UI():
 
+
+
+
+
     def __init__(self):
         #加载ui文件
         #定义动态加载
@@ -115,8 +129,15 @@ class Fund_UI():
                 continue
             code,money=eachline.strip().split('\t')
             codelist.append(code)
+
+
             moneylist.append(money)
+
+
             row+=1
+
+
+
         self.window.setWindowFlags(QtCore.Qt.WindowStaysOnTopHint|QtCore.Qt.CustomizeWindowHint)
 
         self.loc()
@@ -188,6 +209,13 @@ class Fund_UI():
         dataf.close()
         self.table_thread.codelist=self.codelist
         self.table_thread.moneylist=self.moneylist
+
+
+
+
+
+
+
 
     def loc(self):
        self.window.move((self.screenRect.width()-self.window.width()), (self.screenRect.height()-self.window.height()-50))  # 利用move函数窗口
